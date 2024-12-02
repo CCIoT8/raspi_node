@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MQTT Webpage</title>
+</head>
+<body>
+  <h1>Hello, welcome to my website!</h1>
+  <div id="mqtt-message">Waiting for MQTT message...</div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('mqttMessage', (message) => {
+      document.getElementById('mqtt-message').innerText = message;
+    });
+  </script>
+</body>
+</html>
